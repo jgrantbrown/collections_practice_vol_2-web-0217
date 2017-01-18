@@ -37,5 +37,15 @@ return new_array
 end
 
 def count_elements(arrays)
- arrays.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
+ #arrays.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
+end
+
+def merge_data(keys, data)
+  merged_array=[]
+  keys.each { |key|
+    key.each { |keyname, name|
+     merged_array.push(key.merge(data[0][name]))
+    }
+  }
+  merged_array
 end
