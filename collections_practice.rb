@@ -40,6 +40,7 @@ def count_elements(arrays)
  #arrays.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
  arrays.each_with_object(Hash.new(0)) { |g,h| h[g[:name]] += 1 }.
      map { |name, count| { :name=>name, :count=>count } }
+     #http://ruby-doc.org/core-2.2.0/Hash.html#method-c-new
 end
 
 def merge_data(keys, data)
@@ -51,3 +52,11 @@ def merge_data(keys, data)
   }
   merged_array
 end
+
+def find_cool(array)
+      array.map{|key,value|
+      key.map{|k,v| if v=="cool"
+        puts "#{key}"
+      end}
+      }
+      end
