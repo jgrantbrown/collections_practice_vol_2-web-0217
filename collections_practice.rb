@@ -56,7 +56,7 @@ end
 def find_cool(array)
       array.map{|key,value|
       key.map{|k,v| if v=="cool"
-        puts "#{key}"
+        "#{key}"
       end}
       }
       end
