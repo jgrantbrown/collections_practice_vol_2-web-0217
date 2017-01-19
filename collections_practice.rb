@@ -54,9 +54,36 @@ def merge_data(keys, data)
 end
 
 def find_cool(array)
-      array.map{|key,value|
-      key.map{|k,v| if v=="cool"
-        "#{key}"
-      end}
+     new_array=[ ]
+      array.map{|key|
+      key.map{|k,v| puts new_array<<key if v=="cool"
+
       }
+      }
+      new_array
+      end
+
+def organize_schools(schools)
+       where_school={ }
+       nyc={}
+       sf={}
+       chx={}
+       nyc_array=[]
+       sf_array=[]
+       chx_array=[]
+       schools.map{|key,value|
+         value.map{|k,v|
+        if v=="NYC"
+          nyc_array<<"#{key}"
+          nyc="#{v}=>#{nyc_array}"
+        elsif v=="SF"
+          sf_array<<"#{key}"
+          sf="#{v}=>#{sf_array}"
+        else v=="Chicago"
+          chx_array<<"#{key}"
+          chx="#{v}=>#{chx_array}"
+        end
+      }
+       }
+      where_school=nyc,sf,chx
       end
