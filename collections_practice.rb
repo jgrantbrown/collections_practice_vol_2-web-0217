@@ -38,6 +38,8 @@ end
 
 def count_elements(arrays)
  #arrays.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
+ arrays.each_with_object(Hash.new(0)) { |g,h| h[g[:name]] += 1 }.
+     map { |name, count| { :name=>name, :count=>count } }
 end
 
 def merge_data(keys, data)
