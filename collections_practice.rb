@@ -63,27 +63,18 @@ def find_cool(array)
       new_array
       end
 
-def organize_schools(schools)
-       where_school={ }
-       nyc={}
-       sf={}
-       chx={}
-       nyc_array=[]
-       sf_array=[]
-       chx_array=[]
-       schools.map{|key,value|
-         value.map{|k,v|
-        if v=="NYC"
-          nyc_array<<"#{key}"
-          nyc="#{v}=>#{nyc_array}"
-        elsif v=="SF"
-          sf_array<<"#{key}"
-          sf="#{v}=>#{sf_array}"
-        else v=="Chicago"
-          chx_array<<"#{key}"
-          chx="#{v}=>#{chx_array}"
-        end
-      }
-       }
-      where_school=nyc,sf,chx
-      end
+      def organize_schools(schools)
+         new_hash={}
+         nyc_array=[]
+         sf_array=[]
+         chx_array=[]
+         schools.map {|school,location|  if location[:location]=="NYC" #is the city
+           nyc_array<<school
+         elsif location[:location]=="SF"
+          sf_array<<school
+        else location[:location]=="Chicago"
+          chx_array<<school
+        end}
+       new_hash={"NYC"=>nyc_array,"SF"=>sf_array,"Chicago"=>chx_array}
+       new_hash
+            end
